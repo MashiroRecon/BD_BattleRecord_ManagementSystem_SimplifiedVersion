@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Battle Record</title>
+</head>
+
+<body>
+    <h1>BD BattleRecord Management SYSTEM</h1>
+    <h2>Match Result  MatchID: <%= data.id %> </h2>
+
+    <table border="1" style="border-collapse: collapse">
+        <tbody>
+            <tr>
+                <th> ID </th>
+                <td>  </td>
+                <th> DATE </th>
+                <th> Rule </th>
+                <td>  </td>
+                <th> RedSide </th>
+                <th> RedSide_Score</th>
+                <th> BlueSide </th>
+                <th> BlueSide_Score </th>
+                <td>  </td>
+                <th> Winner </th>
+                <th>    </th>
+                <th> ScoreGap </th>
+            </tr>
+            <tr>
+                <td> <%= data.id %> </td>
+                <td>  </td>
+                <td> <%= data.date %> </td>
+                <td> <%= data.rule %> </td>
+                <td>  </td>
+                <td>
+                    <a href="/details/<%= data.player1_id %>"><%= data.player1 %></a>
+                </td>
+                <td> <%= data.player1_score %> </td>
+                <td>
+                    <a href="/details/<%= data.player2_id %>"><%= data.player2 %></a>
+                </td>
+                <td> <%= data.player2_score %> </td>
+                <td>  </td>
+                <td>
+                    <a href="/details/<%= data.winner_id %>"><%= data.winner %></a>
+                </td>
+                <td>    </td>
+                <% if(data.winner == data.player1){ %>
+                    <td> <%= data.player1_score - data.player2_score %> </td>
+                <% }else{ %>
+                    <td> <%= data.player2_score - data.player1_score %> </td>
+                <% } %>
+
+            </tr>
+
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/">to TopPage</a><br>
+    <a href="/list">to Battle Record</a>
+
+</body>
+
+</html>

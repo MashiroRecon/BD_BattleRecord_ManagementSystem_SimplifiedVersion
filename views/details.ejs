@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Battle Record</title>
+</head>
+
+<body>
+    <h1>BD BattleRecord Management SYSTEM</h1>
+    <h2>Player Details  PlayerName: <%= player.name %></h2>
+
+    <h3>Player Information</h3>
+    <table border="1" style="border-collapse: collapse">
+        <tbody>
+            <tr>
+                <th> ID </th>
+                <th> Nmae </th>
+            </tr>
+            <tr>
+                <td> <%= player.id %> </td>
+                <td> <%= player.name %> </td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <h3>Match History</h3>
+    <table border="1" style="border-collapse: collapse">
+        <tbody>
+            <tr>
+                <th> ID </th>
+                <td>  </td>
+                <th> DATE </th>
+                <th> Rule </th>
+                <td>  </td>
+                <th> RedSide </th>
+                <th> RedSide_Score</th>
+                <th> BlueSide </th>
+                <th> BlueSide_Score </th>
+                <td>  </td>
+                <th> Winner </th>
+                <th>    </th>
+                <th> ScoreGap </th>
+            </tr>
+            <% for(let row of match){ %>
+                <tr>
+                    <td> <%= row.id %> </td>
+                    <td>  </td>
+                    <td> <%= row.date %> </td>
+                    <td> <%= row.rule %> </td>
+                    <td>  </td>
+                    <td>
+                        <a href="/details/<%= row.player1_id %>"><%= row.player1 %></a>
+                    </td>
+                    <td> <%= row.player1_score %> </td>
+                    <td>
+                        <a href="/details/<%= row.player2_id %>"><%= row.player2 %></a>
+                    </td>
+                    <td> <%= row.player2_score %> </td>
+                    <td>  </td>
+                    <td>
+                        <a href="/details/<%= row.winner_id %>"><%= row.winner %></a>
+                    </td>
+                    <td>    </td>
+                    <% if(row.winner == row.player1){ %>
+                        <td> <%= row.player1_score - row.player2_score %> </td>
+                    <% }else{ %>
+                        <td> <%= row.player2_score - row.player1_score %> </td>
+                    <% } %>
+
+                </tr>
+            <% } %>
+
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/">to TopPage</a><br>
+    <a href="/list">to Battle Record</a>
+
+</body>
+
+</html>

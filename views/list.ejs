@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Battle Record</title>
+</head>
+
+<body>
+    <h1>BD BattleRecord Management SYSTEM</h1>
+    <h2>Battle Record</h2>
+
+    <table border="1" style="border-collapse: collapse">
+        <tbody>
+            <tr>
+                <th> ID </th>
+                <th>  </th>
+                <th> DATE </th>
+                <th> Rule </th>
+                <th>  </th>
+                <th> RedSide </th>
+                <th> BlueSide </th>
+                <th>  </th>
+                <th> Winner </th>
+            </tr>
+
+            <% for(let row of data){ %>
+                <tr>
+                    <td>
+                        <a href="/result/<%= row.id %>"> <%= row.id %></a>
+                    </td>
+                    <td>  </td>
+                    <td> <%= row.date %> </td>
+                    <td> <%= row.rule %> </td>
+                    <td>  </td>
+                    <td>
+                        <a href="/details/<%= row.player1_id %>"> <%= row.player1 %></a>
+                    </td>
+                    <td>
+                        <a href="/details/<%= row.player2_id %>"> <%= row.player2 %></a>
+                    </td>
+                    <td>  </td>
+                    <td>
+                        <a href="/details/<%= row.winner_id %>"> <%= row.winner %></a>
+                    </td>
+                </tr>
+            <% } %>
+
+        </tbody>
+    </table>
+
+    <br>
+    <a href="/">to TopPage</a><br>
+    <a href="/add/result">to Add Result</a>
+
+</body>
+
+</html>

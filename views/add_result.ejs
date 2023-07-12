@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Battle Record</title>
+</head>
+
+<body>
+    <h1>BD BattleRecord Management SYSTEM</h1>
+    <h2>Add Result</h2>
+
+    <form action="/add/result/post" method="post">
+        <p>Date</p>
+        <input type="text" name="date" value="" placeholder="xxxx-xx-xx">
+        <p>Rule</p>
+        <input type="text" name="rule" value="SGL/BDROFF/5">
+        <br>
+
+        <p>RedSide</p>
+        <select name="player1_id">
+            <% for(let row of data){ %>
+            <option value="<%= row.id %>"><%= row.name %></option>
+            <% } %>
+        </select>
+        <input type="number" name="player1_score">
+        <br>
+
+        <p>BlueSide</p>
+        <select name="player2_id">
+            <% for(let row of data){ %>
+            <option value="<%= row.id %>"><%= row.name %></option>
+            <% } %>
+        </select>
+        <input type="number" name="player2_score">
+        <br>
+
+        <p>Winner</p>
+        <select name="winner_id">
+            <option value="1"> RedSide </option>
+            <option value="2"> BlueSide </option>
+        </select>
+        <br>
+
+        <p>Add</p>
+        <input type="submit" value="Confirm">
+    </form>
+
+    <br>
+    <a href="/">to TopPage</a><br>
+    <a href="/list">to Battle Record</a>
+
+</body>
+
+</html>
