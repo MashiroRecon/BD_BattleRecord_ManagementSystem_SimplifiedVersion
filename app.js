@@ -142,7 +142,7 @@ app.post('/add/result/post', (req, res) => {
     //console.log(sql);
     db.serialize(() => {
         db.run(sql, (error, row) => {
-            console.log(error);
+            //console.log(error);
             if(error){
                 console.log('ERROR: ', error);
                 return;

@@ -39,12 +39,12 @@
                 <th> BlueSide_Score </th>
                 <td>  </td>
                 <th> Winner </th>
-                <th>    </th>
-                <th> ScoreGap </th>
             </tr>
             <% for(let row of match){ %>
                 <tr>
-                    <td> <%= row.id %> </td>
+                    <td>
+                        <a href="/result/<%= row.id %>"><%= row.id %></a>
+                    </td>
                     <td>  </td>
                     <td> <%= row.date %> </td>
                     <td> <%= row.rule %> </td>
@@ -61,12 +61,6 @@
                     <td>
                         <a href="/details/<%= row.winner_id %>"><%= row.winner %></a>
                     </td>
-                    <td>    </td>
-                    <% if(row.winner == row.player1){ %>
-                        <td> <%= row.player1_score - row.player2_score %> </td>
-                    <% }else{ %>
-                        <td> <%= row.player2_score - row.player1_score %> </td>
-                    <% } %>
 
                 </tr>
             <% } %>
